@@ -1,14 +1,42 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import image from '../../../assests/login.jpg'
+import { AuthContex } from '../../Contex/AuthProvidor';
+import { FaGoogle } from "react-icons/fa";
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
+    const { signIn, googleSignIn } = useContext(AuthContex);
+
+    const googleProvidor = new GoogleAuthProvider()
+
+    const navigate = useNavigate()
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate('/')
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvidor)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(err => {
+                console.error(err);
+            })
     }
     return (
         <div className="hero min-h-screen bg-base-200 mb-20">
@@ -38,12 +66,23 @@ const Login = () => {
                                 <p>Have a Account    <Link to='/register' className="label-text-alt link link-hover">register</Link></p>
                             </label>
                         </div>
+
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
+
+                            {/* google signIn */}
+                            <div className='flex justify-center'>
+                                <button onClick={handleGoogleSignIn}
+                                    className="btn btn-wide mt-5 "><FaGoogle className='mr-3 text-2xl'></FaGoogle>
+                                    Google Sign In
+                                </button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </form>
+
         </div>
     );
 };

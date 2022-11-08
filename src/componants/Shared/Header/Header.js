@@ -1,22 +1,44 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assests/logo.png'
+import { AuthContex } from '../../Contex/AuthProvidor';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContex);
+
+    const signOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(() => { })
+    }
     const navBar = <>
         <li>
+
             <Link to='/' className='text-2xl font-semibold text-gray-700'>Home</Link>
         </li>
         <li tabIndex={0}>
             <Link to='/blog' className='text-2xl font-semibold text-gray-700'>Blog</Link>
 
         </li>
-        <li>
-            <Link to='/login' className='text-2xl font-semibold text-gray-700'>Login</Link>
-        </li>
+
+        {user?.email ?
+            <li>
+                <Link
+                    className='text-2xl font-semibold text-gray-700'>
+                    <button onClick={signOut}>Logout</button>
+                </Link>
+            </li>
+            :
+            <li>
+                <Link to='/login' className='text-2xl font-semibold text-gray-700'>Login</Link>
+            </li>
+
+
+        }
+
     </>
     return (
-        <div className="navbar mt-7 bg-base-100 sticky top-0">
+        <div className="navbar mt-7 bg-base-100 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
