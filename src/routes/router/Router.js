@@ -1,6 +1,8 @@
 import AllService from "../../componants/Home/AllService/AllService";
 import Login from "../../componants/Login/Login/Login";
 import Register from "../../componants/Login/Register/Register";
+import SingleServices from "../../componants/Other/SingleServices/SingleServices"
+
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Home } = require("../../componants/Home/Home/Home");
@@ -19,6 +21,11 @@ export const router = createBrowserRouter([
             {
                 path: '/allService', element: <AllService></AllService>,
                 loader: () => fetch('http://localhost:5000/services/all')
+            },
+            {
+                path: '/single/:id',
+                element: <SingleServices></SingleServices>,
+                loader: ({ params }) => fetch(`http://localhost:5000/services/all/${params.id}`)
             }
 
         ]

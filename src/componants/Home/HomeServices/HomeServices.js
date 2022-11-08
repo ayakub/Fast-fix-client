@@ -1,8 +1,9 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const HomeServices = ({ services }) => {
-    const { img, name, description, rating, price } = services
+    const { _id, img, name, description, rating, price } = services
     return (
         <div className="card text-start  bg-base-100 shadow-xl">
             <figure><img src={img} alt="Shoes" /></figure>
@@ -30,10 +31,12 @@ const HomeServices = ({ services }) => {
                         <span className='ml-3'>{rating}</span></p>
                 </div>
                 <div className="card-actions justify-center">
-                    <button className="btn btn-primary">Details</button>
+                    <Link to={`/single/${_id}`}>
+                        <button className="btn btn-primary">Details</button>
+                    </Link>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
