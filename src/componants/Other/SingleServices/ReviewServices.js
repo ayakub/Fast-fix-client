@@ -13,7 +13,7 @@ const ReviewServices = ({ review }) => {
                     <div className="mask mask-squircle w-12 h-12 ">
                         <img src={user?.photoURL} alt="" />
                     </div>
-                    <div className='hidden md:block lg:block'>
+                    <div className=''>
                         <div className="font-bold">{customer}</div>
                         <div className="text-sm opacity-50">{email}</div>
                     </div>

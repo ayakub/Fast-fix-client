@@ -1,17 +1,18 @@
 import React from 'react';
 
-const Reviews = () => {
+const Reviews = ({ singleReview, handleDelete }) => {
+    const { customer, email, serviceName, message, _id } = singleReview
     return (
         <tr>
 
             <td>
                 <div className="flex items-center space-x-3">
-                    <div className="mask mask-squircle w-12 h-12 ">
-                        <img src={user?.photoURL} alt="" />
+                    <div className=" w-12 h-12 ">
+                        <button onClick={() => handleDelete(_id)} className='btn btn-ghost'>X</button>
                     </div>
-                    <div className='hidden md:block lg:block'>
-                        <div className="font-bold">{customer}</div>
-                        <div className="text-sm opacity-50">{email}</div>
+                    <div className=''>
+                        <div className="font-bold">{serviceName}</div>
+
                     </div>
                 </div>
             </td>
@@ -19,9 +20,9 @@ const Reviews = () => {
                 <br />
                 <span className="badge badge-ghost font-semibold ">
 
-                    <span className='text-red-600 font-semibold'>serviceName : </span>
-                    {serviceName}</span> <br />
-                <span><span className='text-red-600 font-semibold'>customer review :</span> {message}</span>
+                    <span className='text-red-600 font-semibold'>My Review : {message} </span>
+                </span> <br />
+
             </td>
         </tr>
     );
