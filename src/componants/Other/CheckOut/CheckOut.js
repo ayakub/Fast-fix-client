@@ -2,6 +2,7 @@ import { success } from 'daisyui/src/colors';
 import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import swal from 'sweetalert';
 import { AuthContex } from '../../Contex/AuthProvidor';
 
 const CheckOut = () => {
@@ -9,10 +10,6 @@ const CheckOut = () => {
     const service = useLoaderData()
     const { _id, name, price } = service
 
-    //     const [service, setService] = useState()
-    // useEffect(() =>{
-    //     fetch
-    // }, [])
 
     const handleReviews = event => {
         event.preventDefault();
@@ -44,7 +41,7 @@ const CheckOut = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    toast('successfully review added', success)
+                    swal("review added");
                     form.reset();
 
                 }

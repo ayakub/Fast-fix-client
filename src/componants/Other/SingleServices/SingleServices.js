@@ -58,11 +58,11 @@ const SingleServices = () => {
 
                 {
                     <div className=" ">
-                        <table className="table w-full mx-5">
+                        <table className="table w-6/7 mx-5">
                             <thead>
                                 <tr>
 
-                                    <th>Name</th>
+                                    <th>Cutomer Details</th>
                                     <th>Service Details</th>
 
                                 </tr>

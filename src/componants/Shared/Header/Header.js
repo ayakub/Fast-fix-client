@@ -22,12 +22,21 @@ const Header = () => {
         </li>
 
         {user?.email ?
-            <li>
-                <Link
-                    className='text-2xl font-semibold text-gray-700'>
-                    <button onClick={signOut}>Logout</button>
-                </Link>
-            </li>
+            <>
+                <li>
+                    <Link
+                        className='text-2xl font-semibold text-gray-700'>
+                        <button onClick={signOut}>Logout</button>
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/myreview'
+                        className='text-2xl font-semibold text-gray-700'>
+                        <button >My Review</button>
+                    </Link>
+                </li>
+
+            </>
             :
             <li>
                 <Link to='/login' className='text-2xl font-semibold text-gray-700'>Login</Link>
