@@ -17,11 +17,9 @@ const Reviews = ({ singleReview, handleDelete }) => {
                 </div>
             </td>
             <td className='hidden md:block lg:block'>
-                <br />
-                <span className="badge badge-ghost font-semibold ">
-
-                    <span className='text-red-600 font-semibold'>My Review : {message} </span>
-                </span> <br />
+                <p className="  font-semibold ">
+                    My Review : <span className='text-2xl text-red-500'>{message}</span>
+                </p> <br />
 
             </td>
         </tr>

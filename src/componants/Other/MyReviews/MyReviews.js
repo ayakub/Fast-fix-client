@@ -25,17 +25,19 @@ const MyReviews = () => {
                 .then(data => {
                     console.log(data);
                     if (data.deletedCount > 0) {
-                        swal("review added");
+                        swal("review deleted successfully");
                         const remaining = myReview.filter(odr => odr._id !== id);
                         setMyReview(remaining);
                     }
                 })
         }
+
     }
 
     return (
         <div>
-            <h3>My Reviews : {myReview?.length}</h3>
+            <h3 className='my-10 text-orange-600 font-semibold text-4xl'>My Reviews : {myReview?.length}</h3>
+
 
             <div>
                 {
@@ -51,6 +53,7 @@ const MyReviews = () => {
                             </thead>
                             <tbody>
 
+
                                 {
                                     myReview?.map(singleReview => <Reviews
                                         key={singleReview._id}
@@ -58,6 +61,14 @@ const MyReviews = () => {
                                         handleDelete={handleDelete}
                                     ></Reviews>)
                                 }
+
+                                {/* no review */}
+
+                                <div className='flex justify-center items-center my-20 text-4xl font-semibold text-red-600'>
+                                    {
+                                        myReview?.length === 0 ? 'No review added' : ''
+                                    }
+                                </div>
 
                             </tbody>
 

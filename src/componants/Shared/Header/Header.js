@@ -35,6 +35,12 @@ const Header = () => {
                         <button >My Review</button>
                     </Link>
                 </li>
+                <li>
+                    <Link to='/addservice'
+                        className='text-2xl font-semibold text-gray-700'>
+                        <button >Add Service</button>
+                    </Link>
+                </li>
 
             </>
             :

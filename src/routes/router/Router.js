@@ -1,6 +1,7 @@
 import AllService from "../../componants/Home/AllService/AllService";
 import Login from "../../componants/Login/Login/Login";
 import Register from "../../componants/Login/Register/Register";
+import AddService from "../../componants/Other/AddService/AddService";
 import Blog from "../../componants/Other/Blog/Blog";
 import CheckOut from "../../componants/Other/CheckOut/CheckOut";
 import MyReviews from "../../componants/Other/MyReviews/MyReviews";
@@ -30,16 +31,22 @@ export const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/blog', element: <Blog></Blog>
+                path: '/blog',
+                element: <Blog></Blog>
             },
 
             {
-                path: '/allService', element: <AllService></AllService>,
+                path: '/allService',
+                element: <AllService></AllService>,
                 loader: () => fetch('http://localhost:5000/services/all')
             },
             {
-                path: 'myreview',
+                path: '/myreview',
                 element: <MyReviews></MyReviews>
+            },
+            {
+                path: '/addservice',
+                element: <AddService></AddService>
             },
             {
                 path: '/single/:id',
