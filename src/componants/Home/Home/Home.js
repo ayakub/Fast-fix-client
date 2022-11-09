@@ -2,6 +2,7 @@ import { useLoaderData } from 'react-router-dom';
 import image from '../../../assests/servicing.jpg'
 import HomeServices from '../HomeServices/HomeServices';
 import { Link } from 'react-router-dom';
+import SectionOne from '../../Other/SectionOne/SectionOne';
 
 const Home = () => {
     const servicingData = useLoaderData()
@@ -27,6 +28,10 @@ const Home = () => {
                 <Link to='/allService'>
                     <button className="btn border-0 bg-orange-600 mb-5">See All Services</button>
                 </Link>
+            </div>
+
+            <div>
+                <SectionOne></SectionOne>
             </div>
         </div>
     );

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContex } from '../../Contex/AuthProvidor';
 
 const SingleServices = () => {
     const singleData = useLoaderData()
-    const { img, name, description, rating, price } = singleData
+    const { _id, img, name, description, rating, price } = singleData
+    const { user } = useContext(AuthContex);
+
+
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2'>
@@ -29,39 +33,20 @@ const SingleServices = () => {
 
                             <span className='ml-3'>{rating}</span></p>
                     </div>
-                    <div className="card-actions justify-center">
+                    <div className="card-actions flex justify-between">
                         <Link to='/'>
                             <button className="btn btn-primary">Back Home</button>
+                        </Link>
+                        <Link to={`/checkOut/${_id}`}>
+                            <button className="btn btn-primary">add review</button>
                         </Link>
                     </div>
                 </div>
             </div>
 
 
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-">
+            <div>
 
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <div className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="text" placeholder="email" className="input input-bordered" />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type="text" placeholder="password" className="input input-bordered" />
-
-                            </div>
-                            <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
 
