@@ -6,6 +6,7 @@ import Blog from "../../componants/Other/Blog/Blog";
 import CheckOut from "../../componants/Other/CheckOut/CheckOut";
 import MyReviews from "../../componants/Other/MyReviews/MyReviews";
 import SingleServices from "../../componants/Other/SingleServices/SingleServices"
+import UpdateReview from "../../componants/Other/UpdateReview/UpdateReview";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
@@ -31,6 +32,7 @@ export const router = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>
             },
+
             {
                 path: '/blog',
                 element: <Blog></Blog>
@@ -41,14 +43,22 @@ export const router = createBrowserRouter([
                 element: <AllService></AllService>,
                 loader: () => fetch('http://localhost:5000/services/all')
             },
+
             {
                 path: '/myreview',
                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             },
             {
+                path: '/update/:id',
+                element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/myreviews/${params.id}`)
+            },
+
+            {
                 path: '/addservice',
                 element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
+
             {
                 path: '/single/:id',
                 element: <SingleServices></SingleServices>,

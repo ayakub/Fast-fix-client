@@ -1,12 +1,19 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 
 const HomeServices = ({ services }) => {
     const { _id, img, name, description, rating, price } = services
     return (
         <div className="card text-start  bg-base-100 shadow-xl">
-            <figure><img src={img} alt="Shoes" /></figure>
+            {/* react photo view */}
+            <PhotoProvider>
+
+                <PhotoView src={img}>
+                    <figure><img src={img} alt="Shoes" /></figure>
+                </PhotoView>
+            </PhotoProvider>
             <div className="card-body">
                 <h2 className="card-title"> {name}</h2>
                 <p >

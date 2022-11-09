@@ -12,6 +12,8 @@ const Service = ({ service }) => {
 
 
         <div className="card text-start  bg-base-100 shadow-xl">
+            {/* react photo view */}
+
             <PhotoProvider>
 
                 <PhotoView src={img}>
