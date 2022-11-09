@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import swal from 'sweetalert';
+import useTitle from '../../../hooks/useTitle';
 
 const AddService = () => {
+    useTitle('AddService')
     const [service, setService] = useState([])
     const handleAddService = event => {
         event.preventDefault()

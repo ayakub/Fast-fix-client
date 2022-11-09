@@ -2,10 +2,12 @@ import { data } from 'autoprefixer';
 import React, { useContext, useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 import { AuthContex } from '../../Contex/AuthProvidor';
 import ReviewServices from './ReviewServices';
 
 const SingleServices = () => {
+    useTitle('Services-details')
     const singleData = useLoaderData()
     const { _id, img, name, description, rating, price } = singleData
     const { user } = useContext(AuthContex);

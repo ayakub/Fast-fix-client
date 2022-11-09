@@ -3,6 +3,7 @@ import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Service = ({ service }) => {
+
     const { _id, img, name, description, rating, price } = service
     return (
         <div className="card text-start  bg-base-100 shadow-xl">

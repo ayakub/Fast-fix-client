@@ -4,13 +4,16 @@ import image from '../../../assests/login.jpg'
 import { AuthContex } from '../../Contex/AuthProvidor';
 import { FaGoogle } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
+import useTitle from '../../../hooks/useTitle';
 
 const Register = () => {
+    useTitle('register')
     const { createUser, googleSignIn, updateUserProfile } = useContext(AuthContex);
     const googleProvidor = new GoogleAuthProvider()
 
     const handleSignUp = event => {
         event.preventDefault()
+
         const form = event.target;
         const name = form.name.value;
         const photoURL = form.photoURL.value;

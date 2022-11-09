@@ -3,12 +3,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import swal from 'sweetalert';
+import useTitle from '../../../hooks/useTitle';
 import { AuthContex } from '../../Contex/AuthProvidor';
 
 const CheckOut = () => {
     const { user } = useContext(AuthContex);
     const service = useLoaderData()
     const { _id, name, price } = service
+    useTitle('CheckOut')
 
 
     const handleReviews = event => {

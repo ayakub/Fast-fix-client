@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContex } from '../../Contex/AuthProvidor';
 
 const ReviewServices = ({ review }) => {
+
     const { customer, email, serviceName, message } = review;
     const { user } = useContext(AuthContex)
     console.log(review);

@@ -3,9 +3,11 @@ import image from '../../../assests/servicing.jpg'
 import HomeServices from '../HomeServices/HomeServices';
 import { Link } from 'react-router-dom';
 import SectionOne from '../../Other/SectionOne/SectionOne';
+import useTitle from '../../../hooks/useTitle';
 
 const Home = () => {
     const servicingData = useLoaderData()
+    useTitle('Home')
 
     return (
         <div>

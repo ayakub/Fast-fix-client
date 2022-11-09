@@ -1,14 +1,19 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../../assests/login.jpg'
 import { AuthContex } from '../../Contex/AuthProvidor';
 import { FaGoogle } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
+import useTitle from '../../../hooks/useTitle';
 
 const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContex);
-
     const googleProvidor = new GoogleAuthProvider()
+    const location = useLocation()
+    useTitle('Login')
+
+    // navigate
+    let from = location.state?.from?.pathname || "/";
 
     const navigate = useNavigate()
     const handleLogin = event => {
@@ -22,6 +27,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 navigate('/')
+                navigate(from, { replace: true });
             })
             .catch(err => {
                 console.error(err);
@@ -33,6 +39,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                navigate(from, { replace: true });
             })
             .catch(err => {
                 console.error(err);
