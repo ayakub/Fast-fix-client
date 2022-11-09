@@ -1,14 +1,21 @@
-import React, { useContext } from 'react';
+import { data } from 'autoprefixer';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContex } from '../../Contex/AuthProvidor';
+import ReviewServices from './ReviewServices';
 
 const SingleServices = () => {
     const singleData = useLoaderData()
     const { _id, img, name, description, rating, price } = singleData
     const { user } = useContext(AuthContex);
+    const [reviews, setReviews] = useState([])
 
-
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews?service=${_id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [_id])
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2'>
@@ -46,6 +53,38 @@ const SingleServices = () => {
 
 
             <div>
+                <h3 className='my-10 text-orange-600 font-semibold text-4xl'>Total Review : {reviews.length}</h3>
+
+
+                {
+                    <div className=" ">
+                        <table className="table w-full mx-5">
+                            <thead>
+                                <tr>
+
+                                    <th>Name</th>
+                                    <th>Service Details</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {
+                                    reviews?.map(review => <ReviewServices
+                                        key={review._id}
+                                        review={review}
+                                    ></ReviewServices>)
+                                }
+
+                            </tbody>
+
+
+
+                        </table>
+                    </div>
+                }
+
+
 
             </div>
 

@@ -13,6 +13,7 @@ const HomeServices = ({ services }) => {
                     {
                         description?.length > 100 ? description.slice(0, 100) : description
                     }
+                    <span>  ...</span>
                 </p>
                 <div className='flex items-center'>
                     <p className='text-orange-600 mt-3 font-semibold text-start'> Price: $ {price}</p>

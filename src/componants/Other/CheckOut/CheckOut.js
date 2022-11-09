@@ -1,11 +1,13 @@
+import { success } from 'daisyui/src/colors';
 import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContex } from '../../Contex/AuthProvidor';
 
 const CheckOut = () => {
     const { user } = useContext(AuthContex);
     const service = useLoaderData()
-    const { _id, img, name, description, rating, price } = service
+    const { _id, name, price } = service
 
     //     const [service, setService] = useState()
     // useEffect(() =>{
@@ -22,30 +24,30 @@ const CheckOut = () => {
 
 
 
-        // const order = {
-        //     service: _id,
-        //     serviceName: name,
-        //     price,
-        //     customer: reviewerName,
-        //     email,
-        //     message
-        // }
+        const order = {
+            service: _id,
+            serviceName: name,
+            price,
+            customer: reviewerName,
+            email,
+            message
+        }
 
-        fetch('http://localhost:5000/orders', {
+        fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
-            // body: JSON.stringify(order)
+            body: JSON.stringify(order)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                // if (data.acknowledged) {
-                //     alert('Order placed successfully')
-                //     form.reset();
+                if (data.acknowledged) {
+                    toast('successfully review added', success)
+                    form.reset();
 
-                // }
+                }
             })
             .catch(er => console.error(er));
 
@@ -62,7 +64,7 @@ const CheckOut = () => {
                             <label className="label">
                                 <span className="label-text">name</span>
                             </label>
-                            <input type="text" name='name' placeholder="name" className="input input-bordered" />
+                            <input type="text" name='name' placeholder="name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -74,7 +76,7 @@ const CheckOut = () => {
                             <label className="label">
                                 <span className="label-text">message</span>
                             </label>
-                            <textarea name="message" placeholder='message' id="" cols="10" rows="5"></textarea>
+                            <textarea name="message" placeholder='message' id="" cols="10" rows="5" required></textarea>
 
                         </div>
                         <div className="form-control mt-6">
