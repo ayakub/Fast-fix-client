@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import swal from 'sweetalert';
 
 const AddService = () => {
     const [service, setService] = useState([])
@@ -25,6 +26,12 @@ const AddService = () => {
                 console.log(data);
                 const newUsers = [...service, data];
                 setService(newUsers);
+                swal({
+                    title: "Service",
+                    text: "Added Successfully",
+                    icon: "success",
+                    button: "ok",
+                });
             })
             .catch(err => console.error(err))
 

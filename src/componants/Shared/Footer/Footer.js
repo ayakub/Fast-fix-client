@@ -7,7 +7,7 @@ const Footer = () => {
         <footer className="footer p-10 bg-neutral text-neutral-content relative bottom-0 ">
             <div>
                 <img style={{ width: '80px' }} src={logo} alt="" />
-                < p className='text-3xl' > MOBILE REPAIR CENTER</p >
+                < p className='text-3xl' > MOBILE REPAIR Shop</p >
             </div >
             <div>
                 <span className="footer-title">Social</span>

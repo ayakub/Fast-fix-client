@@ -6,7 +6,7 @@ import { FaGoogle } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-    const { createUser, googleSignIn } = useContext(AuthContex);
+    const { createUser, googleSignIn, updateUserProfile } = useContext(AuthContex);
     const googleProvidor = new GoogleAuthProvider()
 
     const handleSignUp = event => {
@@ -21,6 +21,8 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                form.reset()
+                handleUpdateUserProfile(name, photoURL);
             })
             .catch(err => {
                 console.error(err);
@@ -31,10 +33,21 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+
             })
             .then(err => {
                 console.error(err);
             })
+    }
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error));
     }
     return (
         <div className="hero min-h-screen bg-base-200 mb-20">
@@ -53,7 +66,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name='name' placeholder="photoURL" className="input input-bordered" />
+                            <input type="text" name='name' placeholder="name" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">

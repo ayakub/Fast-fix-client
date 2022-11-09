@@ -23,12 +23,7 @@ const Header = () => {
 
         {user?.email ?
             <>
-                <li>
-                    <Link
-                        className='text-2xl font-semibold text-gray-700'>
-                        <button onClick={signOut}>Logout</button>
-                    </Link>
-                </li>
+
                 <li>
                     <Link to='/myreview'
                         className='text-2xl font-semibold text-gray-700'>
@@ -39,6 +34,12 @@ const Header = () => {
                     <Link to='/addservice'
                         className='text-2xl font-semibold text-gray-700'>
                         <button >Add Service</button>
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        className='text-2xl font-semibold text-gray-700'>
+                        <button onClick={signOut}>Logout</button>
                     </Link>
                 </li>
 
