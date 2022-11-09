@@ -34,6 +34,7 @@ const AddService = () => {
                     icon: "success",
                     button: "ok",
                 });
+                form.reset()
             })
             .catch(err => console.error(err))
 
