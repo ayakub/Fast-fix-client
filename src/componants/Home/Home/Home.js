@@ -14,7 +14,10 @@ const Home = () => {
             <div >
                 <img className='w-full' src={image} alt="" />
             </div>
-            <h2 className='text-orange-600 mt-7 text-5xl font-semibold'>Our Services</h2>
+            <h2 className='text-orange-600 mt-7 text-5xl font-semibold'>
+                My Services
+            </h2>
+
             <div className='my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-10 gap-10'>
                 {
                     servicingData.map(services => <HomeServices
