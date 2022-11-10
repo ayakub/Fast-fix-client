@@ -11,7 +11,7 @@ const UpdateReview = () => {
 
     const handleUpdateReview = event => {
         event.preventDefault();
-        fetch(`http://localhost:5000/myreviews/${_id}`, {
+        fetch(`https://mobile-servicing-server-ayakub.vercel.app/myreviews/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -16,7 +16,7 @@ const AddService = () => {
         const allform = { name, img, price, rating, description }
         console.log(allform)
 
-        fetch('http://localhost:5000/services/all', {
+        fetch('https://mobile-servicing-server-ayakub.vercel.app/services/all', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -14,7 +14,7 @@ const SingleServices = () => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?service=${_id}`)
+        fetch(`https://mobile-servicing-server-ayakub.vercel.app/reviews?service=${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [_id])

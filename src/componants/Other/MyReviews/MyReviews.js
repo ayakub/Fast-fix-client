@@ -12,7 +12,7 @@ const MyReviews = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?email=${user?.email}`, {
+        fetch(`https://mobile-servicing-server-ayakub.vercel.app/myreviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('genius-token')}`
             }
@@ -34,7 +34,7 @@ const MyReviews = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, delete your review');
         if (proceed) {
-            fetch(`http://localhost:5000/myreviews/${id}`, {
+            fetch(`https://mobile-servicing-server-ayakub.vercel.app/myreviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

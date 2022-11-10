@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://mobile-servicing-server-ayakub.vercel.app/services')
             },
 
             {
@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
             {
                 path: '/allService',
                 element: <AllService></AllService>,
-                loader: () => fetch('http://localhost:5000/services/all')
+                loader: () => fetch('https://mobile-servicing-server-ayakub.vercel.app/services/all')
             },
 
             {
@@ -52,7 +52,7 @@ export const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/myreviews/${params.id}`)
+                loader: ({ params }) => fetch(`https://mobile-servicing-server-ayakub.vercel.app/myreviews/${params.id}`)
             },
 
             {
@@ -63,13 +63,13 @@ export const router = createBrowserRouter([
             {
                 path: '/single/:id',
                 element: <SingleServices></SingleServices>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/all/${params.id}`)
+                loader: ({ params }) => fetch(`https://mobile-servicing-server-ayakub.vercel.app/services/all/${params.id}`)
             }
             ,
             {
                 path: '/checkOut/:id',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/all/${params.id}`)
+                loader: ({ params }) => fetch(`https://mobile-servicing-server-ayakub.vercel.app/services/all/${params.id}`)
             }
 
         ]
