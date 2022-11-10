@@ -35,22 +35,20 @@ const SectionOne = () => {
                 </div>
             </div>
 
-
-            <div className='w-8/12 mx-auto '>
-
-                <h3 className='text-5xl font-semibold text-orange-600 text-center'>WHY CHOSE US</h3>
-
+            <h3 className='text-5xl font-semibold text-orange-600 text-center'>WHY CHOSE US</h3>
+            <div className='w-8/12 mx-auto grid justify-between grid-cols-1 md:grid-cols-2 mb-20'>
                 <div className='mb-15 flex   mt-10 mr-5'>
                     <div className=''>
                         <img src={imge} alt="" />
                     </div>
-
-                    <div className='mb-10 '>
-                        <h3 className=' text-4xl font-semibold mt-10 flex items-center ml-5 mb-10'><img style={{ width: '80px' }} src={logo} alt="" /> Quality Gureenty</h3>
-                        <p>A quality guarantee is an assurance of quality and customer satisfaction issued by a company and offered primarily to paying customers who have purchased products or services from the company. </p>
-                    </div>
-
                 </div>
+
+                <div className=' mt-20'>
+                    <h3 className=' text-4xl font-semibold mt-10 flex items-center ml-5 mb-10'><img style={{ width: '80px' }} src={logo} alt="" /> Quality Gureenty</h3>
+                    <p>A quality guarantee is an assurance of quality and customer satisfaction issued by a company and offered primarily to paying customers who have purchased products or services from the company. </p>
+                </div>
+
+
             </div >
         </>
     );
