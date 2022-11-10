@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Reviews = ({ singleReview, handleDelete }) => {
-    const { customer, email, serviceName, message, _id } = singleReview
+
+    const { customer, email, serviceName, message, _id } = singleReview;
     return (
         <tr>
 
@@ -18,7 +19,6 @@ const Reviews = ({ singleReview, handleDelete }) => {
                         <button onClick={() => handleDelete(_id)} className='btn btn-error'>X</button>
                     </div>
                     <div className=''>
-                        <div className="font-bold">Name: {customer}</div>
                         <div className="font-bold">{serviceName}</div>
 
                     </div>

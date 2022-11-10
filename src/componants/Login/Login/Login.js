@@ -6,6 +6,7 @@ import { FaGoogle } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
 import useTitle from '../../../hooks/useTitle';
 
+
 const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContex);
     const googleProvidor = new GoogleAuthProvider()
@@ -26,8 +27,28 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate('/')
-                navigate(from, { replace: true });
+
+                const currentUser = {
+                    email: user.email
+                }
+
+                console.log(currentUser);
+
+                // get jwt token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        // local storage is the easiest but not the best place to store jwt token
+                        localStorage.setItem('genius-token', data.token);
+                        navigate(from, { replace: true });
+                    });
             })
             .catch(err => {
                 console.error(err);
@@ -39,7 +60,27 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                navigate(from, { replace: true });
+
+                const currentUser = {
+                    email: user.email
+                }
+
+                console.log(currentUser);
+
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        // local storage is the easiest but not the best place to store jwt token
+                        localStorage.setItem('genius-token', data.token);
+                        navigate(from, { replace: true });
+                    });
             })
             .catch(err => {
                 console.error(err);

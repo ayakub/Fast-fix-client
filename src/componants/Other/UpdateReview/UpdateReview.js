@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const UpdateReview = () => {
 
@@ -20,7 +21,7 @@ const UpdateReview = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert('user updated')
+                    swal("Updated successfully");
                     console.log(data);
                 }
 
@@ -39,10 +40,11 @@ const UpdateReview = () => {
 
     return (
         <div className='w-5/4 mb-16'>
-            <h3>Updated Your review</h3>
+            <h3 className='my-10 text-orange-600 font-semibold text-2xl'>Updated Your review</h3>
             <form onSubmit={handleUpdateReview}>
-                <input onChange={handleInputChange} style={{ width: '300px' }} type="text" defaultValue={customer} name="name" placeholder="Type here" className="input input-bordered w-full my-10" /><br />
-
+                {/* <label >Review</label>
+                <input onChange={handleInputChange} style={{ width: '300px' }} type="text" defaultValue={customer} name="name" placeholder="Type here" className="input input-bordered w-full my-10" /><br /> */}
+                <label htmlFor="">Updete your message</label><br />
                 <textarea onChange={handleInputChange} style={{ width: '300px' }} cols='20'
                     defaultValue={message}
                     name='message'

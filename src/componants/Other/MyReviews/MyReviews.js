@@ -5,15 +5,29 @@ import { AuthContex } from '../../Contex/AuthProvidor';
 import Reviews from './Reviews';
 
 const MyReviews = () => {
-    const { user } = useContext(AuthContex)
-    const [myReview, setMyReview] = useState()
+    const { user, logOut } = useContext(AuthContex)
+    const [myReview, setMyReview] = useState();
+
     useTitle('my Review')
 
+
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => setMyReview(data))
-    }, [user?.email])
+        fetch(`http://localhost:5000/myreviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('genius-token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut();
+                }
+                return res.json();
+            }
+            )
+            .then(data => {
+                setMyReview(data);
+            })
+    }, [user?.email, logOut])
 
     // handle delete
 
@@ -48,8 +62,8 @@ const MyReviews = () => {
                             <thead>
                                 <tr>
 
-                                    <th>Cutomer Details</th>
-                                    <th className='hidden md:block lg:block'>Service Details</th>
+                                    <th>Service Name</th>
+                                    <th className='hidden md:block lg:block'>My review</th>
 
                                 </tr>
                             </thead>

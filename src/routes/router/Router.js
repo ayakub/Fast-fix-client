@@ -4,6 +4,7 @@ import Register from "../../componants/Login/Register/Register";
 import AddService from "../../componants/Other/AddService/AddService";
 import Blog from "../../componants/Other/Blog/Blog";
 import CheckOut from "../../componants/Other/CheckOut/CheckOut";
+import Error from "../../componants/Other/Error/Error";
 import MyReviews from "../../componants/Other/MyReviews/MyReviews";
 import SingleServices from "../../componants/Other/SingleServices/SingleServices"
 import UpdateReview from "../../componants/Other/UpdateReview/UpdateReview";
@@ -72,5 +73,9 @@ export const router = createBrowserRouter([
             }
 
         ]
-    }
+
+    },
+    { path: '*', element: <Error></Error> }
+
+
 ])

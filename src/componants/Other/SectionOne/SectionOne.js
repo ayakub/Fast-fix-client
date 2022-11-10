@@ -6,7 +6,7 @@ import logo from '../../../assests/quality.png'
 const SectionOne = () => {
     return (
         <>
-            <h3 className='text-5xl font-semibold text-orange-600 mt-5'>We Repair </h3>
+            <h3 className='text-5xl font-semibold text-orange-600 mt-5'>My Repair </h3>
             <div className='my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-10'>
 
                 <div className='mb-5'>
