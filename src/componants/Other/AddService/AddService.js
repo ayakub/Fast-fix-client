@@ -47,7 +47,7 @@ const AddService = () => {
 
                 <h3 className='text-4xl text-orange-600 font-semibold mb-5'>Add a new service</h3>
 
-                <input type="text" placeholder="name" name='name' className="input input-bordered w-full max-w-sm mb-5" required />
+                <input type="text" placeholder="Service name" name='name' className="input input-bordered w-full max-w-sm mb-5" required />
 
                 <input type="text" placeholder="service image" name='img' className="input input-bordered w-full max-w-xs  mb-5" required />
 
