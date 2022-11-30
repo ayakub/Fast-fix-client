@@ -1,6 +1,7 @@
 import { data } from 'autoprefixer';
 import React, { useContext, useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
 import useTitle from '../../../hooks/useTitle';
 import { AuthContex } from '../../Contex/AuthProvidor';
@@ -22,7 +23,12 @@ const SingleServices = () => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2'>
             <div className="card text-start  bg-base-100 shadow-xl">
-                <figure><img src={img} alt="Shoes" /></figure>
+                <PhotoProvider>
+
+                    <PhotoView src={img}>
+                        <figure><img src={img} alt="Shoes" /></figure>
+                    </PhotoView>
+                </PhotoProvider>
                 <div className="card-body">
                     <h2 className="card-title"> {name}</h2>
                     <p>{description}</p>

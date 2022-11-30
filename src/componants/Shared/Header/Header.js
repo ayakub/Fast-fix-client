@@ -66,7 +66,7 @@ const Header = () => {
 
                     </ul>
                 </div>
-                <Link to='/' className='flex items-center'><img style={{ width: '60px' }} src={logo} alt="" /> <h2 className='ml-2 text-2xl font-bold text-gray-700'>MOBILE REPAIR</h2></Link>
+                <Link to='/' className='flex items-center'><img style={{ width: '60px' }} src={logo} alt="" /> <h2 className='ml-2 text-2xl font-bold text-gray-700'>Fast Fix</h2></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

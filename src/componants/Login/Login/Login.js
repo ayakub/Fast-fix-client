@@ -5,6 +5,7 @@ import { AuthContex } from '../../Contex/AuthProvidor';
 import { FaGoogle } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
 import useTitle from '../../../hooks/useTitle';
+import swal from 'sweetalert';
 
 
 const Login = () => {
@@ -27,6 +28,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                swal("Login!", "Sucessfull!", "success");
 
                 const currentUser = {
                     email: user.email
@@ -60,6 +62,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                swal("Login!", "Sucessfull!", "success");
 
                 const currentUser = {
                     email: user.email
